@@ -1,0 +1,14 @@
+.animal-cover {
+  height: 220px;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #dff7ee, #bfe6d7);
+  display: grid;
+  place-items: center;
+  font-size: 4rem;
+  color: #1d8a6c;
+}
+
+.table-card {
+  border-radius: 1rem;
+  box-shadow: var(--shadow);
+}

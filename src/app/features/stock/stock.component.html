@@ -1,0 +1,41 @@
+<div class="page-shell">
+  <div class="page-header">
+    <div>
+      <h2 class="mb-1">Stock d’aliments</h2>
+      <div class="muted-text">Alertes et suivi du stock</div>
+    </div>
+  </div>
+
+  <mat-card class="table-card">
+    <mat-card-content>
+      <table mat-table [dataSource]="stocks" class="w-100">
+        <ng-container matColumnDef="aliment">
+          <th mat-header-cell *matHeaderCellDef>Aliment</th>
+          <td mat-cell *matCellDef="let stock">{{ stock.aliment }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="disponible">
+          <th mat-header-cell *matHeaderCellDef>Disponible</th>
+          <td mat-cell *matCellDef="let stock">{{ stock.disponible }} {{ stock.unite }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="seuil">
+          <th mat-header-cell *matHeaderCellDef>Seuil</th>
+          <td mat-cell *matCellDef="let stock">{{ stock.seuil }} {{ stock.unite }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="statut">
+          <th mat-header-cell *matHeaderCellDef>Statut</th>
+          <td mat-cell *matCellDef="let stock">
+            <span class="badge" [ngClass]="stock.statut === 'ALERTE' ? 'badge-warning' : 'badge-success'">
+              {{ stock.statut === 'ALERTE' ? 'Stock faible' : 'OK' }}
+            </span>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

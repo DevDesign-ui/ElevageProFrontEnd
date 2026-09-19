@@ -1,0 +1,42 @@
+<div class="page-shell">
+  <div class="page-header">
+    <div>
+      <h2 class="mb-1">Santé</h2>
+      <div class="muted-text">Suivi vétérinaire et santé du troupeau</div>
+    </div>
+    <a mat-flat-button color="primary" routerLink="/sante/nouveau"><mat-icon>add</mat-icon> Nouveau suivi</a>
+  </div>
+
+  <mat-card class="table-card">
+    <mat-card-content>
+      <table mat-table [dataSource]="items" class="w-100">
+        <ng-container matColumnDef="animal">
+          <th mat-header-cell *matHeaderCellDef>Animal</th>
+          <td mat-cell *matCellDef="let item">{{ item.animal }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef>Type</th>
+          <td mat-cell *matCellDef="let item">{{ item.type }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let item">{{ item.date }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="statut">
+          <th mat-header-cell *matHeaderCellDef>Statut</th>
+          <td mat-cell *matCellDef="let item">
+            <span class="badge" [ngClass]="item.statut === 'À surveiller' ? 'badge-warning' : 'badge-success'">
+              {{ item.statut }}
+            </span>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,48 @@
+<mat-sidenav-container class="app-shell">
+  <mat-sidenav #sidenav mode="side" opened class="sidebar">
+    <div class="brand-box">
+      <div class="brand-icon">EP</div>
+      <div>
+        <div class="brand-title">ÉleveurPro</div>
+        <small>Gestion d’élevage</small>
+      </div>
+    </div>
+
+    <nav class="nav-menu">
+      <a
+        *ngFor="let item of navItems"
+        mat-list-item
+        [routerLink]="item.route"
+        routerLinkActive="active"
+        class="nav-item"
+      >
+        <mat-icon>{{ item.icon }}</mat-icon>
+        <span>{{ item.label }}</span>
+      </a>
+    </nav>
+
+    <div class="logout-box">
+      <button mat-stroked-button color="warn" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+        Déconnexion
+      </button>
+    </div>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="topbar">
+      <button mat-icon-button (click)="sidenav.toggle()" class="d-lg-none">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="topbar-title">Plateforme de gestion quotidienne</span>
+      <span class="spacer"></span>
+      <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <main class="content-area">
+      <router-outlet />
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>

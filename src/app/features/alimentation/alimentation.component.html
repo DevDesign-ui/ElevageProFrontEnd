@@ -1,0 +1,54 @@
+<div class="page-shell">
+  <div class="page-header">
+    <div>
+      <h2 class="mb-1">Alimentation</h2>
+      <div class="muted-text">Gestion des aliments et consommation</div>
+    </div>
+    <a mat-flat-button color="primary" routerLink="/alimentation/nouveau">
+      <mat-icon>add</mat-icon>
+      Nouvel aliment
+    </a>
+  </div>
+
+  <mat-card class="table-card">
+    <mat-card-content>
+      <table mat-table [dataSource]="aliments" class="w-100">
+        <ng-container matColumnDef="nom">
+          <th mat-header-cell *matHeaderCellDef>Nom</th>
+          <td mat-cell *matCellDef="let aliment">{{ aliment.nom }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef>Type</th>
+          <td mat-cell *matCellDef="let aliment">{{ aliment.type }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="quantiteDisponible">
+          <th mat-header-cell *matHeaderCellDef>Quantité</th>
+          <td mat-cell *matCellDef="let aliment">{{ aliment.quantiteDisponible }} {{ aliment.unite }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="fournisseur">
+          <th mat-header-cell *matHeaderCellDef>Fournisseur</th>
+          <td mat-cell *matCellDef="let aliment">{{ aliment.fournisseur }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="seuilAlerte">
+          <th mat-header-cell *matHeaderCellDef>Seuil d’alerte</th>
+          <td mat-cell *matCellDef="let aliment">{{ aliment.seuilAlerte }} {{ aliment.unite }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let aliment">
+            <a mat-icon-button [routerLink]="['/alimentation', aliment.id, 'modifier']"><mat-icon>edit</mat-icon></a>
+            <button mat-icon-button color="warn" (click)="delete(aliment.id)"><mat-icon>delete</mat-icon></button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

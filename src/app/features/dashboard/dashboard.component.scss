@@ -1,0 +1,54 @@
+.stat-card {
+  border-radius: 1rem;
+  background: white;
+}
+
+.icon-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  color: white;
+}
+
+.icon-badge.primary { background: #1d8a6c; }
+.icon-badge.success { background: #2e7d32; }
+.icon-badge.accent { background: #3f51b5; }
+.icon-badge.warn { background: #f44336; }
+
+.chart-bars {
+  display: flex;
+  align-items: end;
+  gap: 0.5rem;
+  height: 190px;
+  padding-top: 1rem;
+}
+
+.chart-bars span {
+  flex: 1;
+  border-radius: 10px 10px 0 0;
+  background: linear-gradient(180deg, #67c7ac 0%, #1d8a6c 100%);
+  min-height: 8px;
+}
+
+.chart-bars.dark span { background: linear-gradient(180deg, #94a3b8 0%, #475569 100%); }
+.chart-bars.green span { background: linear-gradient(180deg, #8ed19a 0%, #2e7d32 100%); }
+.chart-bars.amber span { background: linear-gradient(180deg, #f7d98e 0%, #f9a825 100%); }
+.chart-bars.red span { background: linear-gradient(180deg, #f7a0a0 0%, #d32f2f 100%); }
+.chart-bars.teal span { background: linear-gradient(180deg, #8fe3d8 0%, #0f766e 100%); }
+
+.line-chart {
+  display: flex;
+  align-items: end;
+  gap: 0.55rem;
+  height: 190px;
+  padding-top: 1rem;
+}
+
+.line-chart span {
+  flex: 1;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #b2d5ff 0%, #3f51b5 100%);
+  min-height: 12px;
+}

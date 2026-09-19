@@ -1,0 +1,108 @@
+<div class="page-shell">
+  <div class="page-header">
+    <div>
+      <h2 class="mb-1">Ajouter un animal</h2>
+      <div class="muted-text">Créer une fiche complète</div>
+    </div>
+  </div>
+
+  <mat-card class="table-card p-3">
+    <form [formGroup]="form" (ngSubmit)="save()" class="row g-3">
+      <div class="col-md-6">
+        <mat-form-field class="w-100">
+          <mat-label>Numéro d’identification</mat-label>
+          <input matInput formControlName="identifiant" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field class="w-100">
+          <mat-label>Nom</mat-label>
+          <input matInput formControlName="nom" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field class="w-100">
+          <mat-label>Espèce</mat-label>
+          <mat-select formControlName="espece">
+            <mat-option value="Bovin">Bovin</mat-option>
+            <mat-option value="Ovin">Ovin</mat-option>
+            <mat-option value="Caprin">Caprin</mat-option>
+            <mat-option value="Volaille">Volaille</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field class="w-100">
+          <mat-label>Race</mat-label>
+          <input matInput formControlName="race" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field class="w-100">
+          <mat-label>Sexe</mat-label>
+          <mat-select formControlName="sexe">
+            <mat-option value="MALE">Mâle</mat-option>
+            <mat-option value="FEMELLE">Femelle</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field class="w-100">
+          <mat-label>Date de naissance</mat-label>
+          <input matInput formControlName="dateNaissance" type="date" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field class="w-100">
+          <mat-label>Poids (kg)</mat-label>
+          <input matInput formControlName="poids" type="number" min="0" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field class="w-100">
+          <mat-label>Couleur</mat-label>
+          <input matInput formControlName="couleur" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field class="w-100">
+          <mat-label>Date d’acquisition</mat-label>
+          <input matInput formControlName="dateAcquisition" type="date" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field class="w-100">
+          <mat-label>Prix d’acquisition (€)</mat-label>
+          <input matInput formControlName="prixAcquisition" type="number" min="0" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field class="w-100">
+          <mat-label>Origine</mat-label>
+          <input matInput formControlName="origine" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field class="w-100">
+          <mat-label>Statut</mat-label>
+          <mat-select formControlName="statut">
+            <mat-option value="PRESENT">Présent</mat-option>
+            <mat-option value="VENDU">Vendu</mat-option>
+            <mat-option value="DECEDE">Décédé</mat-option>
+            <mat-option value="TRANSFERE">Transféré</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-12">
+        <mat-form-field class="w-100">
+          <mat-label>Description</mat-label>
+          <textarea matInput rows="4" formControlName="description"></textarea>
+        </mat-form-field>
+      </div>
+      <div class="col-12 d-flex justify-content-end gap-2">
+        <button mat-stroked-button type="button">Annuler</button>
+        <button mat-flat-button color="primary" type="submit">Enregistrer</button>
+      </div>
+    </form>
+  </mat-card>
+</div>

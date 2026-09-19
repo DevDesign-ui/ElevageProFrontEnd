@@ -1,0 +1,17 @@
+<div class="page-shell">
+  <div class="page-header">
+    <div>
+      <h2 class="mb-1">Paramètres</h2>
+      <div class="muted-text">Configuration générale de l’application</div>
+    </div>
+  </div>
+
+  <div class="settings-grid">
+    <mat-card *ngFor="let setting of settings" class="setting-card">
+      <mat-card-content>
+        <div class="setting-label">{{ setting.label }}</div>
+        <div class="setting-value">{{ setting.value }}</div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

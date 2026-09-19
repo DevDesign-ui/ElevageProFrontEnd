@@ -1,0 +1,89 @@
+<div class="page-shell">
+  <div class="page-header">
+    <div>
+      <h2 class="mb-1">Tableau de bord</h2>
+      <div class="muted-text">Vue d’ensemble de l’exploitation</div>
+    </div>
+  </div>
+
+  <div class="row g-3">
+    <div class="col-12 col-sm-6 col-xl-3" *ngFor="let stat of stats">
+      <mat-card class="stat-card h-100">
+        <mat-card-content class="d-flex align-items-center justify-content-between">
+          <div>
+            <div class="muted-text small">{{ stat.label }}</div>
+            <h3 class="mb-0 mt-2">{{ stat.value }}</h3>
+          </div>
+          <div class="icon-badge" [ngClass]="stat.color">
+            <mat-icon>{{ stat.icon }}</mat-icon>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </div>
+
+  <div class="row g-4 mt-1">
+    <div class="col-12 col-lg-6">
+      <mat-card class="table-card p-3">
+        <h5>Évolution du nombre d’animaux</h5>
+        <div class="chart-bars">
+          <span *ngFor="let value of charts.evolution" [style.height.%]="value" [title]="value.toString()"></span>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <mat-card class="table-card p-3">
+        <h5>Dépenses mensuelles</h5>
+        <div class="chart-bars dark">
+          <span *ngFor="let value of charts.depenses" [style.height.%]="(value / 20)" [title]="value.toString()"></span>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <mat-card class="table-card p-3">
+        <h5>Revenus mensuels</h5>
+        <div class="chart-bars green">
+          <span *ngFor="let value of charts.revenus" [style.height.%]="(value / 20)" [title]="value.toString()"></span>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <mat-card class="table-card p-3">
+        <h5>Ventes</h5>
+        <div class="line-chart">
+          <span *ngFor="let value of charts.ventes" [style.height.%]="value * 8" [title]="value.toString()"></span>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <mat-card class="table-card p-3">
+        <h5>Naissances</h5>
+        <div class="chart-bars amber">
+          <span *ngFor="let value of charts.naissances" [style.height.%]="value * 20" [title]="value.toString()"></span>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="col-12 col-lg-6">
+      <mat-card class="table-card p-3">
+        <h5>Mortalité</h5>
+        <div class="chart-bars red">
+          <span *ngFor="let value of charts.mortalite" [style.height.%]="value * 100" [title]="value.toString()"></span>
+        </div>
+      </mat-card>
+    </div>
+
+    <div class="col-12">
+      <mat-card class="table-card p-3">
+        <h5>Consommation d’aliments</h5>
+        <div class="chart-bars teal">
+          <span *ngFor="let value of charts.alimentation" [style.height.%]="value * 2.5" [title]="value.toString()"></span>
+        </div>
+      </mat-card>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div class="page-shell">
+  <div class="page-header">
+    <div>
+      <h2 class="mb-1">Utilisateurs</h2>
+      <div class="muted-text">Gestion des comptes et rôles</div>
+    </div>
+    <a mat-flat-button color="primary" routerLink="/utilisateurs/nouveau"><mat-icon>add</mat-icon> Nouvel utilisateur</a>
+  </div>
+
+  <mat-card class="table-card">
+    <mat-card-content>
+      <table mat-table [dataSource]="users" class="w-100">
+        <ng-container matColumnDef="nom">
+          <th mat-header-cell *matHeaderCellDef>Nom</th>
+          <td mat-cell *matCellDef="let item">{{ item.nom }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef>Rôle</th>
+          <td mat-cell *matCellDef="let item">{{ item.role }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef>Email</th>
+          <td mat-cell *matCellDef="let item">{{ item.email }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actif">
+          <th mat-header-cell *matHeaderCellDef>Actif</th>
+          <td mat-cell *matCellDef="let item">
+            <span class="badge" [ngClass]="item.actif ? 'badge-success' : 'badge-warning'">
+              {{ item.actif ? 'Oui' : 'Non' }}
+            </span>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,47 @@
+<div class="page-shell">
+  <div class="page-header">
+    <div>
+      <h2 class="mb-1">Vaccinations</h2>
+      <div class="muted-text">Calendrier et historique vaccinal</div>
+    </div>
+    <a mat-flat-button color="primary" routerLink="/vaccinations/nouveau"><mat-icon>add</mat-icon> Nouvelle vaccination</a>
+  </div>
+
+  <mat-card class="table-card">
+    <mat-card-content>
+      <table mat-table [dataSource]="vaccinations" class="w-100">
+        <ng-container matColumnDef="animal">
+          <th mat-header-cell *matHeaderCellDef>Animal</th>
+          <td mat-cell *matCellDef="let item">{{ item.animal }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="vaccin">
+          <th mat-header-cell *matHeaderCellDef>Vaccin</th>
+          <td mat-cell *matCellDef="let item">{{ item.vaccin }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef>Date</th>
+          <td mat-cell *matCellDef="let item">{{ item.date }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="prochain">
+          <th mat-header-cell *matHeaderCellDef>Prochain</th>
+          <td mat-cell *matCellDef="let item">{{ item.prochain }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="statut">
+          <th mat-header-cell *matHeaderCellDef>Statut</th>
+          <td mat-cell *matCellDef="let item">
+            <span class="badge" [ngClass]="item.statut === 'Planifié' ? 'badge-warning' : 'badge-success'">
+              {{ item.statut }}
+            </span>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

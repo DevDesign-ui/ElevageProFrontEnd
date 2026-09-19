@@ -1,0 +1,39 @@
+<div class="page-shell">
+  <div class="page-header">
+    <div>
+      <h2 class="mb-1">Espèces</h2>
+      <div class="muted-text">Catalogue des espèces et familles</div>
+    </div>
+    <a mat-flat-button color="primary" routerLink="/especes/nouveau">
+      <mat-icon>add</mat-icon>
+      Ajouter une espèce
+    </a>
+  </div>
+
+  <mat-card class="table-card">
+    <mat-card-content>
+      <table mat-table [dataSource]="especes" class="w-100">
+        <ng-container matColumnDef="nom">
+          <th mat-header-cell *matHeaderCellDef>Nom</th>
+          <td mat-cell *matCellDef="let espece">{{ espece.nom }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef>Description</th>
+          <td mat-cell *matCellDef="let espece">{{ espece.description }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let espece">
+            <a mat-icon-button [routerLink]="['/especes', espece.id, 'modifier']"><mat-icon>edit</mat-icon></a>
+            <button mat-icon-button color="warn" (click)="delete(espece.id)"><mat-icon>delete</mat-icon></button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,41 @@
+<div class="page-shell">
+  <div class="page-header">
+    <div>
+      <h2 class="mb-1">Rapports</h2>
+      <div class="muted-text">Documents et synthèses d’activité</div>
+    </div>
+  </div>
+
+  <mat-card class="table-card">
+    <mat-card-content>
+      <table mat-table [dataSource]="rapports" class="w-100">
+        <ng-container matColumnDef="nom">
+          <th mat-header-cell *matHeaderCellDef>Nom</th>
+          <td mat-cell *matCellDef="let item">{{ item.nom }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="periode">
+          <th mat-header-cell *matHeaderCellDef>Période</th>
+          <td mat-cell *matCellDef="let item">{{ item.periode }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="type">
+          <th mat-header-cell *matHeaderCellDef>Type</th>
+          <td mat-cell *matCellDef="let item">{{ item.type }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="etat">
+          <th mat-header-cell *matHeaderCellDef>État</th>
+          <td mat-cell *matCellDef="let item">
+            <span class="badge" [ngClass]="item.etat === 'En attente' ? 'badge-warning' : 'badge-success'">
+              {{ item.etat }}
+            </span>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>
